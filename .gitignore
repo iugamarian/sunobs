@@ -1,0 +1,6 @@
+sunoss.db
+*.pyc
+*.pyo
+local_settings.py
+apache
+templates/piwik.html

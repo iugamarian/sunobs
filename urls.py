@@ -2,7 +2,8 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.views.generic.simple import direct_to_template
 
-admin.autodiscover()
+#from django.contrib import admin
+#admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'sunoss.views.home', name='home'),

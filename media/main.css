@@ -1,0 +1,59 @@
+/*
+variables
+*/
+
+@font-face { font-family: OpenSans; src: url('/media/fonts/OpenSans-Regular.ttf');}
+@font-face { font-family: OpenSans; font-weight: bold; src: url('/media/fonts/OpenSans-Bold.ttf');}
+@font-face { font-family: OpenSans; font-style: italic; src: url('/media/fonts/OpenSans-Italic.ttf');}
+@font-face { font-family: OpenSans; font-weight: bold; font-style: italic; src: url('/media/fonts/OpenSans_BoldItalic.ttf');}
+@font-face { font-family: Modernpics; src: url('/media/fonts/modernpics.otf');}
+
+@red: #ce0000;
+@lightgray: #F0F0F0;
+@medgray: #ccc;
+@darkgray: #666;
+
+/*
+mixins
+*/
+
+.border-radius (@radius: 5px, @color: white) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+    border:1px solid @color;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    color:#000000;
+    font-size: 12px;
+    line-height: 1.4;
+    font-family:OpenSans;
+}
+
+html, body, #map {
+    height: 100%;
+    overflow: hidden;
+}
+
+main {
+    position:absolute;
+    right:12px;
+    top:12px;
+    z-index:3;
+    background-color:rgba(255, 255, 255, 0.6);
+    color:black;
+    -moz-box-shadow: 0 0 5px 5px #ccc;
+    -webkit-box-shadow: 0 0 5px 5px #ccc;
+    box-shadow: 0 0 5px 5px #ccc;
+    .border-radius;
+    max-height:87%;
+    overflow:auto;
+}
+
+.icon {
+    font-family:Modernpics;
+    font-size:2em;
+}

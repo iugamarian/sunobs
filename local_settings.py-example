@@ -11,6 +11,11 @@ MANAGERS = ADMINS
 EMAIL_HOST = 'localhost'
 DEFAULT_FROM_EMAIL = ''
 LOGIN_REDIRECT_URL = '/'
+SITE_URL = 'https://example.com:8000'
+# Path to redirect to on successful login.
+LOGIN_REDIRECT_URL = '/'
+# Path to redirect to on unsuccessful login attempt.
+LOGIN_REDIRECT_URL_FAILURE = '/'
 
 
 DATABASES = {

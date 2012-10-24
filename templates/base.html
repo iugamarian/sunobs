@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sun Observation Open Source</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="/media/favicon.ico" />
+    <link rel="stylesheet/less" href="/media/main.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="http://code.medialibre.net/less.js" ></script>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="/media/main.js"></script>
+    <script src="https://login.persona.org/include.js"></script>
+    <script type="text/javascript" src="/media/browserid.js"></script>
+</head>
+<body>
+
+<main class="row">
+    {% if not user.is_authenticated %}
+        <a id="browserid" href="#">Sign In</a>
+        <form method="POST" action="{% url browserid_verify %}">{% csrf_token %}
+           {{ browserid_form.as_p }}
+        </form>
+    {% endif %}
+</main>
+
+</body>
+</html>

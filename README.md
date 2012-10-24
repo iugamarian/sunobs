@@ -4,7 +4,7 @@ sunoss
 Sun Observation Open Source
 ---------------------------
 
-This is the source code of [sunoss](http://sunoss.hackerspace.gr) web application.
+This is the source code of [sunoss](http://sunoss.hackerspace.gr) web application for sun observations.
 
 
 license

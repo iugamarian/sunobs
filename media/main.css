@@ -38,6 +38,17 @@ html, body, #map {
     overflow: hidden;
 }
 
+.icon {
+    font-family:Modernpics;
+    font-size:2em;
+}
+
+header {
+    margin:auto;
+    text-align:center;
+    padding-top:10px;
+}
+
 main {
     position:absolute;
     right:12px;
@@ -51,9 +62,4 @@ main {
     .border-radius;
     max-height:87%;
     overflow:auto;
-}
-
-.icon {
-    font-family:Modernpics;
-    font-size:2em;
 }

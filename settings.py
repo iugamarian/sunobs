@@ -74,6 +74,10 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+AUTHENTICATION_BACKENDS = (
+    'django_browserid.auth.BrowserIDBackend',
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -85,9 +89,6 @@ INSTALLED_APPS = (
     'django_browserid',
 )
 
-AUTHENTICATION_BACKENDS = (
-    'django_browserid.auth.BrowserIDBackend',
-)
 
 
 try:

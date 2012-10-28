@@ -8,6 +8,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', 'sunoss.views.home', name='home'),
 
+    url(r'^panel/', 'sunoss.panel.views.panel', name='panel'),
+
     #admin
     url(r'^admin/', include(admin.site.urls)),
 

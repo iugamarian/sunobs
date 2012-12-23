@@ -14,6 +14,8 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
     email = models.EmailField(max_length=100)
     aavsocode = models.CharField(max_length=4)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=40)
     postal = models.IntegerField(max_length=5)
@@ -22,7 +24,7 @@ class UserProfile(models.Model):
     mobile = models.CharField(max_length=14, blank=True)
     creation_date = models.DateTimeField(default=datetime.now)
     groups = models.CharField(max_length=8, choices=GROUP_NAMES, default='Observer')
-    valid = models.BooleanField()
+    valid = models.BooleanField(default=True)
 
 
 class Equipment(models.Model):
@@ -58,4 +60,4 @@ class Equipment(models.Model):
 class UserProfileForm(ModelForm):
     class Meta:
         model = UserProfile
-        exclude = ('valid', 'groups', 'creation_date')
+        exclude = ('valid', 'groups', 'creation_date', 'user', 'email', 'aavsocode')

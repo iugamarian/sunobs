@@ -53,6 +53,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django_browserid.context_processors.browserid_form',
 )
 
+# Instruct session-csrf to always produce tokens for anonymous users
+ANON_ALWAYS = True
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

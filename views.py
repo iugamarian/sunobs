@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 
 def home(request):
     if request.user.is_authenticated():
-        return redirect('/profile/')
+        return redirect('/me/')
     return render(request, 'base.html', locals())
 
 

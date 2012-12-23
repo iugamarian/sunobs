@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.forms import ModelForm
 from datetime import datetime
 from django.contrib.auth.models import User
 
@@ -17,10 +18,10 @@ class UserProfile(models.Model):
     city = models.CharField(max_length=40)
     postal = models.IntegerField(max_length=5)
     country = models.CharField(max_length=40)
-    landline = models.CharField(max_length=14)
-    mobile = models.CharField(max_length=14)
+    landline = models.CharField(max_length=14, blank=True)
+    mobile = models.CharField(max_length=14, blank=True)
     creation_date = models.DateTimeField(default=datetime.now)
-    groups = models.CharField(max_length=8, choices=GROUP_NAMES)
+    groups = models.CharField(max_length=8, choices=GROUP_NAMES, default='Observer')
     valid = models.BooleanField()
 
 
@@ -52,3 +53,9 @@ class Equipment(models.Model):
     focal_length_type = models.CharField(max_length=2, choices=FOCAL_TYPES)
     filtr = models.CharField(max_length=100, blank=True)
     user = models.ForeignKey('UserProfile')
+
+
+class UserProfileForm(ModelForm):
+    class Meta:
+        model = UserProfile
+        exclude = ('valid', 'groups', 'creation_date')

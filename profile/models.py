@@ -4,13 +4,14 @@ from datetime import datetime
 from django.contrib.auth.models import User
 
 
-class Profile(models.Model):
+class UserProfile(models.Model):
     GROUP_NAMES = (
         ('Observer', 'Observer'),
         ('Analyst', 'Analyst'),
         ('Admin', 'Admin'),
     )
     user = models.ForeignKey(User, unique=True)
+    email = models.EmailField(max_length=100)
     aavsocode = models.CharField(max_length=4)
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=40)
@@ -44,9 +45,10 @@ class Equipment(models.Model):
     name = models.CharField(max_length=50)
     method = models.CharField(max_length=10, choices=METHODS)
     instrument = models.CharField(max_length=9, choices=INSTRUMENTS)
-    aperture (mm) = models.DecimalField(max_digits=2, decimal_points=2)
-    eyepiece (mm) = models.DecimalField(max_digits=2, decimal_points=2)
+    aperture = models.DecimalField(max_digits=2, decimal_places=2)
+    eyepiece = models.DecimalField(max_digits=2, decimal_places=2)
     magnification = models.IntegerField(max_length=3)
     focal_length = models.IntegerField(max_length=3)
     focal_length_type = models.CharField(max_length=2, choices=FOCAL_TYPES)
     filtr = models.CharField(max_length=100, blank=True)
+    user = models.ForeignKey('UserProfile')

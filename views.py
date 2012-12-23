@@ -1,9 +1,16 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404, redirect
-from django.conf.urls.defaults import *
-from django.contrib.auth import authenticate, login
-from django.conf import settings
+from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
+from django.template import Context, RequestContext, loader
 
+from django.conf.urls.defaults import *
+from django.contrib.auth import authenticate, login, logout
 
 def home(request):
-    return render_to_response('base.html', locals())
+    if request.user.is_authenticated():
+        return redirect('/profile/')
+    return render(request, 'base.html', locals())
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('/')

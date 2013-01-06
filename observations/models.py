@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.forms import ModelForm
 from datetime import datetime
 
 
-class observations(models.Model):
+class Observations(models.Model):
     SYNC_TYPES = (
         ('E', 'E'),
         ('G', 'G'),
@@ -19,3 +20,9 @@ class observations(models.Model):
     deleted = models.BooleanField(default=False)
     valid = models.BooleanField(default=True)
     user = models.ForeignKey('profile.UserProfile')
+
+
+class ObservationsForm(ModelForm):
+    class Meta:
+        model = Observations
+        exclude = ('creation', 'deleted', 'user', 'valid')

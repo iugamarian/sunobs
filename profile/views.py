@@ -5,17 +5,6 @@ from django.contrib.auth import logout
 from sunoss.profile.models import UserProfile, UserProfileForm
 
 
-def me(request):
-    if request.user.is_authenticated():
-        try:
-            me = UserProfile.objects.get(user=request.user)
-        except UserProfile.DoesNotExist:
-            return redirect('/register/')
-        return render(request, 'me.html', locals())
-    else:
-        return redirect('/')
-
-
 def register(request):
     if request.user.is_authenticated():
         try:

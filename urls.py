@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', 'sunoss.views.home', name='home'),
     url(r'^logout/', 'sunoss.views.logout_user', name='logout_user'),
 
-    url(r'^me/', 'sunoss.profile.views.me', name='me'),
+    url(r'^me/', 'sunoss.observations.views.me', name='me'),
     url(r'^register/', 'sunoss.profile.views.register', name='register'),
 
     #admin

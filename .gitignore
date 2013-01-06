@@ -4,3 +4,4 @@ sunoss.db
 local_settings.py
 apache
 templates/piwik.html
+env

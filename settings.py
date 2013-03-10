@@ -50,7 +50,7 @@ TEMPLATE_LOADERS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
-    'django_browserid.context_processors.browserid_form',
+    'django_browserid.context_processors.browserid',
 )
 
 # Instruct session-csrf to always produce tokens for anonymous users

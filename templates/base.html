@@ -1,3 +1,4 @@
+{% load browserid %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +12,15 @@
     <script type="text/javascript" src="/media/js/jquery.min.js"></script>
     <script type="text/javascript" src="/media/js/include.js"></script>
     <script type="text/javascript" src="/media/js/browserid.js"></script>
+    {% browserid_js %}
 </head>
 <body>
+{% browserid_info %}
 
 {% block header %}
-<a id="browserid" class="persona-button" href="#"><span>Sign In</span></a>
-<form method="POST" action="{% url browserid_verify %}">{% csrf_token %}
-    {{ browserid_form.as_p }}
-</form>
+<div class="authentication">
+    {% browserid_login text='Login' %}
+</div>
 {% endblock %}
 
 </body>

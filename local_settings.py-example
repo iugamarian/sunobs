@@ -14,6 +14,8 @@ MANAGERS = ADMINS
 LOGIN_REDIRECT_URL = '/me/'
 # Path to redirect to on unsuccessful login attempt.
 LOGIN_REDIRECT_URL_FAILURE = '/'
+# Path to redirect to on logout.
+LOGOUT_REDIRECT_URL = '/'
 SITE_URL = 'http://localhost:8000'
 
 DATABASES = {

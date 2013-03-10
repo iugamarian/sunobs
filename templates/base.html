@@ -6,21 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="shortcut icon" href="/media/favicon.ico" />
-    <link rel="stylesheet/less" href="/media/css/app.css" type="text/css" media="screen" />
-    <script type="text/javascript" src="/media/js/less.js" ></script>
-    <script type="text/javascript" src="/media/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/media/js/include.js"></script>
-    <script type="text/javascript" src="/media/js/browserid.js"></script>
-    {% browserid_js %}
-</head>
+    <link href="/media/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="/media/css/bootstrap-responsive.css" rel="stylesheet"></head>
 <body>
-{% browserid_info %}
+    {% browserid_info %}
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="/">SunObS</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        {% if user.is_authenticated %}
+                            <li class="active">
+                                <a href="/me">Dashboard</a>
+                            </li>
+                        {% else %}
+                            <li class="active">
+                                <a href="/">Home</a>
+                            </li>
+                        {% endif %}
+                        <li>
+                            <a href="#about">Help</a>
+                        </li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    {{ user.username }} <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">Profile</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        {% browserid_logout text='Logout' %}
+                                    </li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li>
+                                {% browserid_login text='Login' %}
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-{% block header %}
-<div class="authentication">
-    {% browserid_login text='Login' %}
-</div>
-{% endblock %}
+<div class="container">
 
+    <!-- Content -->  
+    {% block content %}
+    {% endblock %}
+
+    <hr>
+
+    <footer>
+        <p>CC-BY-SA Hellas-Astro and Hackerspace.gr</p>
+    </footer>
+
+</div> <!-- /container -->
+
+<script type="text/javascript" src="/media/js/less.js" ></script>
+<script type="text/javascript" src="/media/js/jquery.min.js"></script>
+<script type="text/javascript" src="/media/js/include.js"></script>
+<script type="text/javascript" src="/media/js/browserid.js"></script>
+<script src="/media/js/bootstrap.js"></script>
+{% browserid_js %}
 </body>
 </html>

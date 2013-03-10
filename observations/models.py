@@ -2,6 +2,7 @@
 from django.db import models
 from django.forms import ModelForm
 from datetime import datetime
+from django.contrib.auth.models import User
 
 
 class Observations(models.Model):
@@ -19,7 +20,7 @@ class Observations(models.Model):
     creation = models.DateTimeField(default=datetime.now)
     deleted = models.BooleanField(default=False)
     valid = models.BooleanField(default=True)
-    user = models.ForeignKey('profile.UserProfile')
+    user = models.ForeignKey(User)
 
 
 class ObservationsForm(ModelForm):

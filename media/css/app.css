@@ -42,24 +42,3 @@ html, body, #map {
     font-family:Modernpics;
     font-size:2em;
 }
-
-header {
-    margin:auto;
-    text-align:center;
-    padding-top:10px;
-}
-
-main {
-    position:absolute;
-    right:12px;
-    top:12px;
-    z-index:3;
-    background-color:rgba(255, 255, 255, 0.6);
-    color:black;
-    -moz-box-shadow: 0 0 5px 5px #ccc;
-    -webkit-box-shadow: 0 0 5px 5px #ccc;
-    box-shadow: 0 0 5px 5px #ccc;
-    .border-radius;
-    max-height:87%;
-    overflow:auto;
-}

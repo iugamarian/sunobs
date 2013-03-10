@@ -5,4 +5,10 @@ ok!<br />
 <a href="/logout/">logout</a><br />
 {{ me.first_name }}
 {{ me.last_name }}
+
+{% if observations %}
+    {% for item in observations %}
+        {{ item..creation }}
+    {% endfor %}
+{% endif %}
 {% endblock %}

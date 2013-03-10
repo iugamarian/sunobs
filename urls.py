@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
-from django.views.generic.simple import direct_to_template
+from django.shortcuts import HttpResponse
 
 from django.contrib import admin
 admin.autodiscover()
@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', 'sunoss.views.home', name='home'),
     url(r'^logout/', 'sunoss.views.logout_user', name='logout_user'),
 
-    url(r'^me/', 'sunoss.profile.views.me', name='me'),
+    url(r'^me/', 'sunoss.observations.views.me', name='me'),
     url(r'^register/', 'sunoss.profile.views.register', name='register'),
 
     #admin
@@ -17,6 +17,14 @@ urlpatterns = patterns('',
 
     #browserid
     (r'^browserid/', include('django_browserid.urls')),
+
+    #generate a robots.txt
+    (r'^robots\.txt$',
+        lambda r: HttpResponse(
+            "User-agent: *\n%s: /" % 'Disallow' if settings.DEBUG else 'Allow' ,
+            mimetype="text/plain"
+        )
+    )
 )
 
 if settings.SERVE_MEDIA:

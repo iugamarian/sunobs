@@ -5,3 +5,5 @@ local_settings.py
 apache
 templates/piwik.html
 env
+
+.DS_Store

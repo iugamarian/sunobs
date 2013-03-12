@@ -14,13 +14,15 @@ This is your dashboard!
         <th>sync</th>
         <th>groups</th>
         <th>spots</th>
+        <th>wolf</th>
     </thead>
     <tbody>
         {% for item in observations %}
         <tr>
-            <td>{{ item..sync }}</td>
-            <td>{{ item..groups }}</td>
-            <td>{{ item..spots }}</td>
+            <td>{{ item.sync }}</td>
+            <td>{{ item.groups }}</td>
+            <td>{{ item.spots }}</td>
+            <td>{{ item.wolf }}</td>
         </tr>
         {% endfor %}
     </tbody>

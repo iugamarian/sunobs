@@ -26,4 +26,4 @@ class Observations(models.Model):
 class ObservationsForm(ModelForm):
     class Meta:
         model = Observations
-        exclude = ('creation', 'deleted', 'user', 'valid')
+        exclude = ('creation', 'deleted', 'user', 'valid', 'wolf')

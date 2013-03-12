@@ -23,5 +23,16 @@ def o_view(request):
 
 
 def o_edit(request):
-        return redirect('/')
+    if request.method == 'POST':
+        user = User.objects.get(username=request.user)
+        form = ObservationsForm(request.POST)
+        if form.is_valid():
+            f = form.save(commit=False)
+            f.user = user
+            f.wolf = 10 * int(f.groups) + int(f.spots)
+            form.save()
+            return redirect('/dashboard/')
+    else:
+        form = ObservationsForm()
+        return render(request, 'o_edit.html', locals())
 

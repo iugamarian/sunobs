@@ -1,11 +1,7 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<form action="/register/" method="post">{% csrf_token %}
+<form action="/o/create/" method="post">{% csrf_token %}
     {{ form.as_p }}
-    <input type="hidden" name="" value="" />
     <input type="submit" value="submit" />
 </form>
-
-{{ email }}
 {% endblock %}

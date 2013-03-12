@@ -2,7 +2,7 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
-from sunobs.profile.models import UserProfile, UserProfileForm
+from sunobs.profiles.models import UserProfile, UserProfileForm
 
 
 def register(request):
@@ -25,4 +25,12 @@ def register(request):
                 form = UserProfileForm()
             return render(request, 'register.html', locals())
     else:
+        return redirect('/')
+
+
+def p_view(request):
+        return redirect('/')
+
+
+def p_edit(request):
         return redirect('/')

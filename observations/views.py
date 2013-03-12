@@ -2,7 +2,7 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
-from sunobs.profile.models import UserProfile
+from sunobs.profiles.models import UserProfile
 from sunobs.observations.models import Observations, ObservationsForm
 
 
@@ -16,3 +16,12 @@ def dashboard(request):
         return render(request, 'dashboard.html', locals())
     else:
         return redirect('/')
+
+
+def o_view(request):
+        return redirect('/')
+
+
+def o_edit(request):
+        return redirect('/')
+

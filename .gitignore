@@ -1,4 +1,4 @@
-sunoss.db
+sunobs.db
 *.pyc
 *.pyo
 local_settings.py

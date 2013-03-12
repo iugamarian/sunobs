@@ -5,25 +5,32 @@ from django.shortcuts import HttpResponse
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    url(r'^$', 'sunobs.views.home', name='home'),
-    url(r'^logout/', 'sunobs.views.logout_user', name='logout_user'),
-    url(r'^dashboard/', 'sunobs.observations.views.dashboard', name='dashboard'),
-    url(r'^register/', 'sunobs.profile.views.register', name='register'),
+urlpatterns = patterns('sunobs.views',
+    (r'^$', 'home'),
+    (r'^logout/', 'logout_user'),
+)
 
-    #observations
-    url(r'^o/create', 'sunobs.observations.views.create', name='register'),
+urlpatterns += patterns('sunobs.observations.views',
+    (r'^dashboard/', 'dashboard'),
+    (r'^o/(?P<id>\d+)/', 'o_view'),
+    (r'^o/create/', 'o_edit'),
+    (r'^o/(?P<id>\d+)/edit/', 'o_edit'),
+)
 
-    #admin
-    url(r'^admin/', include(admin.site.urls)),
+urlpatterns += patterns('sunobs.profiles.views',
+    (r'^register/', 'register'),
+    (r'^me/', 'p_view'),
+    (r'^me/edit/', 'p_edit'),
+)
 
-    #browserid
+urlpatterns += patterns('',
+    (r'^admin/', include(admin.site.urls)),
     (r'^browserid/', include('django_browserid.urls')),
 
     #generate a robots.txt
     (r'^robots\.txt$',
         lambda r: HttpResponse(
-            "User-agent: *\n%s: /" % 'Disallow' if settings.DEBUG else 'Allow' ,
+            "User-agent: *\n%s: /" % 'Disallow' if settings.DEBUG else 'Allow',
             mimetype="text/plain"
         )
     )

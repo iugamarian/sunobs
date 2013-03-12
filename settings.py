@@ -90,7 +90,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django_browserid',
-    'profile',
+    'profiles',
     'observations'
 )
 

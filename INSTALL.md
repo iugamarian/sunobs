@@ -1,4 +1,4 @@
-Having a local development deployment of Sunoss, in order to work, is really easy since this a very simple (at least at the moment) web app.
+Having a local development deployment of SunObS, in order to work, is really easy since this a very simple (at least at the moment) web app.
 
 ## Python
 
@@ -32,9 +32,9 @@ Now you can exit the virtualenv.
 
 ## Fork and Clone
 
-The best way of contributing to Sunoss is to fork it on your account and then clone it locally.
+The best way of contributing to SunObS is to fork it on your account and then clone it locally.
 
-`git clone git@github.com:your_github_username/sunoss.git`
+`git clone git@github.com:your_github_username/sunobs.git`
 
 ## Run it
 
@@ -48,7 +48,7 @@ Now lets activate our virtualenv again.
 
 `source env/bin/activate`
 
-And from inside of Sunoss local repo we run the manage script.
+And from inside of SunObS local repo we run the manage script.
 
 `./manage runserver`
 

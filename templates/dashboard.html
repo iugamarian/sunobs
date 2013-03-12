@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+This is your dashboard!
+
+<div>
+    <a href="/o/create/">new observation</a>
+</div>
+
+{% if observations %}
+<table class="table table-hover">
+    <thead>
+        <th>sync</th>
+        <th>groups</th>
+        <th>spots</th>
+    </thead>
+    <tbody>
+        {% for item in observations %}
+        <tr>
+            <td>{{ item..sync }}</td>
+            <td>{{ item..groups }}</td>
+            <td>{{ item..spots }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

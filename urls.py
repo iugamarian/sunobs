@@ -6,11 +6,13 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'sunoss.views.home', name='home'),
-    url(r'^logout/', 'sunoss.views.logout_user', name='logout_user'),
+    url(r'^$', 'sunobs.views.home', name='home'),
+    url(r'^logout/', 'sunobs.views.logout_user', name='logout_user'),
+    url(r'^dashboard/', 'sunobs.observations.views.dashboard', name='dashboard'),
+    url(r'^register/', 'sunobs.profile.views.register', name='register'),
 
-    url(r'^me/', 'sunoss.observations.views.me', name='me'),
-    url(r'^register/', 'sunoss.profile.views.register', name='register'),
+    #observations
+    url(r'^o/create', 'sunobs.observations.views.create', name='register'),
 
     #admin
     url(r'^admin/', include(admin.site.urls)),

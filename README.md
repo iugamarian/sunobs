@@ -1,10 +1,10 @@
-sunoss
+sunobs
 ======
 
-Sun Observation Open Source
----------------------------
+Sun Observation System
+----------------------
 
-This is the source code of [sunoss](http://sunoss.hackerspace.gr) web application for sun observations.
+This is the source code of [sunobs](http://sunobs.hackerspace.gr) web application for sun observations.
 
 
 license

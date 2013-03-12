@@ -1,6 +1,6 @@
 # -*- coding: utf-8 *-*
 from django.contrib import admin
-from sunoss.observations.models import Observations
+from sunobs.observations.models import Observations
 
 
 class ObservationsAdmin(admin.ModelAdmin):

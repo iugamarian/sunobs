@@ -1,19 +1,20 @@
 {% load browserid %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Sun Observation System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="shortcut icon" href="/media/favicon.ico" />
-    <link href="/media/css/bootstrap.css" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
         padding-bottom: 40px;
       }
     </style>
-    <link href="/media/css/bootstrap-responsive.css" rel="stylesheet"></head>
+    <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet"></head>
 <body>
     {% browserid_info %}
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -45,11 +46,11 @@
                         {% if user.is_authenticated %}
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    {{ user.username }} <b class="caret"></b>
+                                    {{ user.displayname }} <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="#">Profile</a>
+                                        <a href="/me/edit/">Edit Profile</a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
@@ -82,11 +83,11 @@
 
 </div> <!-- /container -->
 
-<script type="text/javascript" src="/media/js/less.js" ></script>
-<script type="text/javascript" src="/media/js/jquery.min.js"></script>
-<script type="text/javascript" src="/media/js/include.js"></script>
-<script type="text/javascript" src="/media/js/browserid.js"></script>
-<script src="/media/js/bootstrap.js"></script>
+<script type="text/javascript" src="{% static 'js/less.js' %}" ></script>
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/include.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/browserid.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
 {% browserid_js %}
 </body>
 </html>

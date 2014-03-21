@@ -1,0 +1,22 @@
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+ALLOWED_HOSTS = []
+
+ADMINS = (
+    ('', ''),
+)
+
+MANAGERS = ADMINS
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sunobs.db',
+    }
+}
+
+SITE_ID = 1
+SITE_URL = 'http://localhost:8000'
+
+SECRET_KEY = '03@7&!kr+1*c=zxi3+up%zof3257$h1=&2c_4#7ig25htv4jn%'
